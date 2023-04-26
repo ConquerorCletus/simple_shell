@@ -69,33 +69,33 @@ int _help(__attribute__((unused)) char **args,
   */
 int hsh_exit(__attribute__((unused)) char **args, char *input)
 {
-	int var;
+	int status;
 
 	if (args[1] == NULL)
 		return (0);
 
-	var = _atoi(args[1]);
+	status = _atoi(args[1]);
 
-	if (var < 0)
+	if (status < 0)
 	{
 		perror("hsh:");
 		return (1);
 	}
-	else if (var == 0)
+	else if (status == 0)
 	{
 		return (0);
 	}
-	else if (var >= 256)
+	else if (status >= 256)
 	{
 		free(input);
 		free(args);
-		exit(var - 256);
+		exit(status - 256);
 	}
 	else
 	{
 		free(input);
 		free(args);
-		exit(var);
+		exit(status);
 	}
 }
 
