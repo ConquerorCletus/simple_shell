@@ -1,13 +1,16 @@
 #include "main.h"
-
 /**
- * main - simple shell
- * @argc: argument count
- * @argv: argument vector
- * Return: 0
+ * main - Simple shell program.
+ * @ac: argument count parameter.
+ * @av: argument vector parameter.
+ * Return: Always 0.
  */
-int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
+
+int main(__attribute__((unused)) int ac,
+__attribute__((unused)) char **av)
 {
-	_prompt();
+
+	prompt();
+
 	return (0);
 }
