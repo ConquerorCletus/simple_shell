@@ -8,20 +8,32 @@
   */
 int _cd(char **args, __attribute__((unused)) char *input)
 {
+	char *new_dir;
+	int i;
 
 	if (args[1] == NULL)
 	{
-		if (chdir(_getenv("HOME")) != 0)
-		{
-			perror("hsh:");
-		}
+		new_dir = _getenv("HOME");
+	}
+	else if (_strcmp(args[1], "-") == 0)
+	{
+		new_dir = _getenv("OLDPWD");
+		for (i = 0; new_dir[i] != '\0'; i++)
+			_putchar(new_dir[i]);
+		_putchar('\n');
 	}
 	else
 	{
-		if (chdir(args[1]) != 0)
-		{
-			perror("hsh:");
-		}
+		new_dir = args[1];
+	}
+	if (chdir(new_dir) == -1)
+	{
+		perror("hsh");
+	}
+	else
+	{
+		_setenv("OLDPWD", _getenv("PWD"));
+		_setenv("PWD", getcwd(NULL, 0));
 	}
 	return (1);
 }
