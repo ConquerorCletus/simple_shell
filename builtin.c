@@ -55,7 +55,12 @@ int _help(__attribute__((unused)) char **args,
   */
 int hsh_exit(__attribute__((unused)) char **args, char *input)
 {
-	int var;
+	/*
+	 * Simple shell 0.3 +
+	 *
+	 * Implement the exit built-in, that exits the shell
+	 * Usage: exit
+	 * You don’t have to handle any argument to the built-in exitint var;
 
 	if (args[1] == NULL)
 		return (0);
@@ -79,10 +84,13 @@ int hsh_exit(__attribute__((unused)) char **args, char *input)
 	}
 	else
 	{
+	*/
 		free(input);
 		free(args);
-		exit(var);
-	}
+		exit(EXIT_SUCCESS);
+	/*
+	 * }
+	 */
 }
 
 /**

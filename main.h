@@ -63,5 +63,6 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 int _putchar(char c);
 void _puts(char *str);
 int _atoi(char *s);
+B
 
 #endif
