@@ -21,11 +21,21 @@ void sigint_handler(int sig);
 
 int hsh_exit(char **args, char *input);
 int _cd(char **args, __attribute__((unused)) char *input);
-/* _help- display message to standard output */
+/**
+ * _help - Displays help.
+ * @args: argument passed.
+ * @input: Input command.
+ * Return:1
+ */
 int _help(__attribute__((unused)) char **args,
 		__attribute__((unused)) char *input);
 
-/*_env- prints environment variables to the standard output*/
+/**
+ * _env - Displays working Environment.
+ * @args:arguments passed
+ * @input: input command
+ * Return:1
+ */
 int _env(__attribute__((unused)) char **args,
 	__attribute__((unused)) char *input);
 int _setenv(char *name, char *value);
