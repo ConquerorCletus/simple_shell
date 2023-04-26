@@ -8,35 +8,21 @@
   */
 int _cd(char **args, __attribute__((unused)) char *input)
 {
-	char *new_dir;
-	int i;
 
 	if (args[1] == NULL)
 	{
-		new_dir = _getenv("HOME");
-	}
-	else if (_strcmp(args[1], "-") == 0)
-	{
-		new_dir = _getenv("OLDPWD");
-		for (i = 0; new_dir[i]; i++)
-			_putchar(new_dir[i]);
-		_putchar('\n');
+		if (chdir(_getenv("HOME")) != 0)
+		{
+			perror("hsh:");
+		}
 	}
 	else
 	{
-		new_dir = args[1];
+		if (chdir(args[1]) != 0)
+		{
+			perror("hsh:");
+		}
 	}
-
-	if (chdir(new_dir) == -1)
-	{
-		perror("hsh");
-	}
-	else
-	{
-		_setenv("OLDPWD", _getenv("PWD"), 1);
-		_setenv("PWD", getcwd(NULL, 0), 1);
-	}
-
 	return (1);
 }
 
@@ -121,48 +107,47 @@ int _env(__attribute__((unused)) char **args,
 }
 
 /**
- * _setenv - Changes or adds an environment variable.
- * @name: Name of the environment variable.
- * @value: Value of the environment variable.
- * @overwrite: If variable already exists, overwrite it or not.
- *
- * Return: 1 on success, -1 on failure.
- */
-int _setenv(const char *name, const char *value, int overwrite)
+  * _setenv - Set a environment variable.
+  * @name:Name of the variable
+  * @value: Value in the variable.
+  * Return: 1.
+  */
+int _setenv(char *name, char *value)
 {
 	char *tmp, new_variable[1024], **ep = environ;
 	char **ev;
-	int i, count = 0;
+	int overwrite = 0, i;
 
-	if (!name || !value)
-		return (-1);
 
+	if (value == NULL)
+	{
+		perror("hsh:");
+	}
 	tmp = _getenv(name);
 	if (tmp != NULL)
 	{
-		if (!overwrite)
-			return (0);
-
-		else
-			_strcpy(tmp, value);
+		_strcpy(tmp, value);
 	}
 	else
 	{
-		while (ep[count])
-			count++;
-		ev = malloc((count + 2) * sizeof(char *));
-		if (!ev)
-			return (-1);
-		for (i = 0; ep[i]; i++)
+		while (ep[overwrite] != NULL)
+		{
+			overwrite++;
+		}
+		overwrite += 2;
+		ev = malloc(overwrite * sizeof(char *));
+		for (i = 0; ep[i] != NULL; i++)
+		{
 			ev[i] = ep[i];
+		}
 		_strcat(new_variable, name);
 		_strcat(new_variable, "=");
 		_strcat(new_variable, value);
-		ev[i++] = new_variable;
-		ev[i] = NULL;
+		ev[i] = new_variable;
+		ev[++i] = NULL;
 		environ = ev;
 		free(ep);
 	}
+
 	return (1);
 }
-

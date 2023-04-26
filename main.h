@@ -38,8 +38,7 @@ int _help(__attribute__((unused)) char **args,
  */
 int _env(__attribute__((unused)) char **args,
 	__attribute__((unused)) char *input);
-int _setenv(char *name, char *value);
-
+int _setenv(const char *name, const char *value, int overwrite);
 ssize_t get_line(char **b, size_t *bufsize, FILE *stream);
 int _getc(void);
 
@@ -56,9 +55,9 @@ char **_split_path(char *line, char *copy_line);
 char **_check_path(char **args, int *flag);
 
 int _strlen(char *s);
-char *_strcat(char *dest, char *src);
+char *_strcat(char *dest, const char *src);
 int _strcmp(char *s1, char *s2);
-char *_strcpy(char *dest, char *src);
+char *_strcpy(char *dest, const char *src);
 int _strncmp(const char *s1, const char *s2, size_t n);
 int _putchar(char c);
 void _puts(char *str);
