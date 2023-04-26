@@ -2,7 +2,8 @@
 
 /**
  * sign_handles - Signal handler
- * @signal
+ * @signal: The signal number.
+ * Return: void.
  */
 
 void sign_handles(int signal)
