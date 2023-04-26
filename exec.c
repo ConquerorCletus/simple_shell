@@ -28,7 +28,7 @@ int _execute(char **args, char *input)
 		return (1);
 
 	if (_strcmp(args[0], "setenv") == 0)
-		return (_setenv(args[1], args[2], 1));
+		return (_setenv(args[1], args[2]));
 
 	for (i = 0; i < 4; i++)
 	{

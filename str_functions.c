@@ -20,7 +20,7 @@ int _strlen(char *s)
  * @src: 2nd string.
  * Return: concatenated string.
  */
-char *_strcat(char *dest, const char *src)
+char *_strcat(char *dest, char *src)
 {
 	int i;
 	int size = _strlen(dest);
@@ -62,7 +62,7 @@ int _strcmp(char *s1, char *s2)
   * @src: string source.
   * Return: The string copiedi.
   */
-char *_strcpy(char *dest, const char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int j, i = 0;
 
