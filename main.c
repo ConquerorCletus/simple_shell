@@ -2,8 +2,8 @@
 
 /**
  * main - simple shell
- * @argc: argument count
- * @argv: argument vector
+ * @ac: argument count
+ * @av: argument vector
  * Return: 0
  */
 int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
