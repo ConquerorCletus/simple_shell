@@ -46,10 +46,10 @@ char **_check_path(char **args, int *flag)
 	char *path, **tokens_path, *dest_path, *copy_line;
 	int j, k;
 
-	for (k = 0; *(args[0] + k) != '\0'; k++) /* Check for '/' in the first arg */
+	for (k = 0; *(args[0] + k) != '\0'; k++)
 	{
 		if (*(args[0] + k) == '/')
-			return (args); /* printf("%s\n", argv[1]);*/
+			return (args);
 	}
 	dest_path = malloc(sizeof(char) * 1024); /*Memory alloc for the comp path */
 	if (alloc_error2(dest_path) == -1)
