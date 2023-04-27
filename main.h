@@ -1,7 +1,6 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-/* Required libraries */
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdlib.h>
