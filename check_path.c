@@ -51,7 +51,7 @@ char **_check_path(char **args, int *flag)
 		if (*(args[0] + k) == '/')
 			return (args);
 	}
-	dest_path = malloc(sizeof(char) * 1024); /*Memory alloc for the comp path */
+	dest_path = malloc(sizeof(char) * 1024);
 	if (alloc_error2(dest_path) == -1)
 		return (NULL);
 	path = _getenv("PATH"); /*  Gets the path from the envi with the diff paths */
