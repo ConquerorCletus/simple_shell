@@ -58,7 +58,7 @@ char **_check_path(char **args, int *flag)
 	copy_line = malloc((_strlen(path) + 1) * sizeof(char *));
 	if (alloc_error1(copy_line, dest_path) == -1)
 		return (NULL);
-	tokens_path = _split_path(path, copy_line); /* Get array of ptr to pos paths*/
+	tokens_path = _split_path(path, copy_line);
 	if (tokens_path == NULL)
 	{ free(copy_line);
 		return (NULL);
