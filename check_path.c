@@ -62,7 +62,7 @@ char **_check_path(char **args, int *flag)
 	if (tokens_path == NULL)
 	{ free(copy_line);
 		return (NULL);
-	} /* File path (dest_path) add the '/' and the comm */
+	}
 	for (j = 0; *(tokens_path + j) != NULL; j++)
 	{ _strcpy(dest_path, *(tokens_path + j));
 		if (*dest_path != '\0')
