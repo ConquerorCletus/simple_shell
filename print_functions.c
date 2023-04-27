@@ -52,14 +52,9 @@ int _atoi(char *s)
 			}
 		}
 		else if (s[i] >= '0' && s[i] <= '9')
-		{
 			flag = 1;
-		}
 		else if (flag)
-		{
 			break;
-		}
-
 		i++;
 	}
 
