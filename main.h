@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdbool.h>
-/* Environmental variables */
+
 extern char **environ;
 
 void prompt(void);
